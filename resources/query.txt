@@ -1,0 +1,14 @@
+
+select distinct palabra
+from palabras
+where tipo not in ('nombre/topónimo', 'preposición', 'pronombre', 'conjunción', 'otro/onomatopeya',
+'otro/locución', 'otro/expresión', 'otro/frase', 'otro/aumentativodiminutivo', 'otro/abreviatura',
+'otro/contracción', 'otro/interjección', 'artículo', 'nombre/propio')
+and tipo != ''
+char_length(palabra)=5
+and palabra REGEXP '(?=[a-z]*v)(?=[a-z]*e)(?=[a-z]*l)[a-z]+'
+and palabra NOT REGEXP '(?=[a-z]*c)[a-z]+'
+and palabra NOT REGEXP '(?=[a-z]*u)[a-z]+'
+and palabra NOT REGEXP '(?=[a-z]*a)[a-z]+'
+and palabra NOT REGEXP '(?=[a-z]*o)[a-z]+'
+and palabra NOT REGEXP '(?=[a-z]*s)[a-z]+'
